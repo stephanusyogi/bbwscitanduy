@@ -1,0 +1,660 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+// SCROLL BAR
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+// Back To Top
+#btn-backtop {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#btn-backtop::after {
+    content: "\f102";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+#btn-backtop:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+#btn-backtop:active {
+    background-color: #555;
+}
+
+#btn-backtop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+// SECTION TOPBAR
+.section-topbar {
+    background-color: #354677;
+    font-size: 11px;
+
+    @media screen and (max-width: 376px) {
+        font-size: 8px;
+    }
+
+    a {
+        color: white;
+        letter-spacing: 1px;
+
+        &:hover {
+            font-weight: 500;
+            color: white;
+        }
+    }
+
+    span {
+        color: white;
+
+        i {
+            margin-right: 10px;
+        }
+    }
+}
+
+// SECTION NAVBAR
+.section-navbar {
+    nav {
+        background-color: #fff;
+        box-shadow: 0px 6px #fec827;
+        z-index: 99;
+    }
+
+    .title-brand {
+        width: 28%;
+        color: black;
+
+        &:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        h5 {
+            font-weight: 700;
+        }
+
+        @media screen and (max-width: 1025px) {
+            display: none;
+        }
+    }
+
+    .nav-item {
+        .nav-link {
+            text-align: center;
+        }
+
+        a {
+            position: relative;
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                bottom: 0;
+                left: 0;
+                background: #262b3b;
+                visibility: hidden;
+                border-radius: 5px;
+                transform: scaleX(0);
+                transition: .25s linear;
+            }
+
+            &:hover {
+                color: #262b3b;
+            }
+
+            &:hover:before {
+                visibility: visible;
+                transform: scaleX(1);
+            }
+
+            &focus:before {
+                visibility: visible;
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    .active {
+        color: #262b3b;
+        font-weight: 500;
+    }
+}
+
+// SECTION JUMBOTRON
+.section-jumbotron {
+    .carousel-item {
+        height: 500px;
+
+        @media screen and (max-width: 768px) {
+            height: 300px;
+        }
+
+        @media screen and (max-width: 576px) {
+            height: 200px;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-height: 500px;
+
+            @media screen and (max-width: 768px) {
+                height: 300px;
+            }
+
+            @media screen and (max-width: 576px) {
+                height: 200px;
+            }
+
+        }
+    }
+
+    .carousel-caption {
+        right: unset !important;
+        left: unset !important;
+        width: 100%;
+        backdrop-filter: blur(4px);
+
+        @media screen and (max-width: 376px) {
+            padding-top: 0px;
+        }
+
+        h1 {
+            @media screen and (max-width: 576px) {
+                font-size: 2rem;
+            }
+
+            @media screen and (max-width: 321px) {
+                font-size: 1.5rem;
+            }
+        }
+
+        hr {
+            width: 40%;
+            border: 1px solid #fefefe;
+
+            @media screen and (max-width: 376px) {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            @media screen and (max-width: 321px) {
+                display: none;
+            }
+        }
+    }
+
+    .btn-selengkapnya {
+        background-color: #354677;
+        color: #fff;
+        border-radius: 10px;
+
+        @media screen and (max-width: 576px) {
+            font-size: 0.8rem;
+        }
+
+        &:hover {
+            box-shadow: 4px 3px 9px 0px #1e1c1c;
+            color: #fff !important;
+        }
+    }
+}
+
+// Section Search
+.section-search {
+    background-color: #e1e1e3;
+
+    @media screen and (max-width: 576px) {
+        text-align: center;
+    }
+
+    .saran-pengaduan {
+        a {
+            @media screen and (max-width: 426px) {
+                margin-bottom: 10px;
+                font-size: 12px;
+            }
+
+            &:hover {
+                font-weight: 500;
+            }
+        }
+    }
+
+    .searchbox {
+        .form-control:focus {
+            box-shadow: none;
+        }
+
+        .form-control-underlined {
+            border-width: 0;
+            border-bottom-width: 1px;
+            border-radius: 0;
+            padding-left: 0;
+        }
+
+        .form-control::placeholder {
+            font-size: 0.95rem;
+            color: #aaa;
+
+            @media screen and (max-width: 576px) {
+                font-size: 12px;
+            }
+        }
+
+        input {
+            border-bottom-left-radius: 50rem;
+            border-top-left-radius: 50rem;
+        }
+
+        .input-group-append {
+            i {
+                color: #262b3b;
+            }
+        }
+    }
+
+    .sosmed {
+        font-size: 20px;
+        justify-content: end;
+
+        @media screen and (max-width: 576px) {
+            justify-content: center;
+        }
+
+        a {
+            color: #262b3b;
+
+            @media screen and (max-width: 576px) {
+                margin-top: 10px;
+            }
+
+            &:hover {
+                color: rgb(94, 103, 135);
+            }
+        }
+    }
+}
+
+// Section Berita
+.section-berita {
+    h1 {
+        color: #262b3b;
+
+        @media screen and (max-width: 576px) {
+            font-size: 2rem;
+        }
+    }
+
+    hr {
+        border: 5px solid #262b3b;
+        margin: auto;
+        width: 30%;
+        border-radius: 10px;
+    }
+
+    .card-news {
+        img {
+            border-bottom: 5px solid #354677;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card {
+            &:hover {
+                transform: translate(0px, -10px);
+                box-shadow: 1px 1px 9px lightgrey;
+                transition: 0.2s;
+                cursor: pointer;
+            }
+
+            a {
+                color: #262b3b;
+
+                &hover {
+                    color: #262b3b;
+                }
+            }
+        }
+    }
+}
+
+
+// Section Berita Lain
+.section-beritalain {
+    background-color: #e1e1e3;
+
+    a {
+        color: #262b3b;
+
+        @media screen and (max-width: 576px) {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        &:hover {
+            color: #262b3b;
+        }
+    }
+}
+
+// Section Galeri
+.section-galeri {
+
+    h1 {
+        color: #262b3b;
+
+        @media screen and (max-width:576px) {
+            font-size: 2rem;
+        }
+    }
+
+    hr {
+        border: 5px solid #262b3b;
+        margin: auto;
+        width: 30%;
+        border-radius: 10px;
+    }
+
+    .photo-btn {
+        i {
+            font-size: 18px;
+            color: #262b3b;
+        }
+    }
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+
+    .embed-youtube {
+        iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+        }
+    }
+}
+
+// Section Majalah
+.section-majalah {
+    background-color: #e1e1e3;
+
+    img {
+        width: 80%;
+        border-radius: 10px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    button {
+        background-color: #fec827;
+        border-radius: 10px;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+            box-shadow: 3px 4px 8px #939393;
+        }
+    }
+}
+
+// Sectio link
+.section-link {
+
+    h1 {
+        color: #262b3b;
+    }
+
+    hr {
+        border: 5px solid #262b3b;
+        margin: auto;
+        width: 30%;
+        border-radius: 10px;
+    }
+
+    .links {
+        margin-bottom: 100px;
+    }
+
+    .apps {
+        margin-bottom: 50px;
+    }
+
+    #carouselLink {
+
+        @media screen and (max-width: 576px) {
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            height: 150px;
+            object-fit: fill;
+
+            @media screen and (max-width: 992px) {
+                height: 100px;
+            }
+
+            @media screen and (max-width: 768px) {
+                height: 50px;
+            }
+
+            @media screen and (max-width: 576px) {
+                width: 40%;
+                height: 150px;
+            }
+
+            @media screen and (max-width: 376px) {
+                height: 100px;
+            }
+        }
+    }
+
+    .link-prev {
+        left: -10%;
+        color: #262b3b;
+        font-size: 30px;
+
+        @media screen and (max-width: 1125px) {
+            left: 40%;
+            bottom: -250px;
+        }
+
+        @media screen and (max-width: 768px) {
+            bottom: -100px;
+        }
+
+        @media screen and (max-width: 576px) {
+            display: none;
+        }
+    }
+
+    .link-next {
+        right: -10%;
+        color: #262b3b;
+        font-size: 30px;
+
+        @media screen and (max-width: 1125px) {
+            right: 40%;
+            bottom: -250px;
+        }
+
+        @media screen and (max-width: 768px) {
+            bottom: -100px;
+        }
+
+        @media screen and (max-width: 576px) {
+            display: none;
+        }
+    }
+
+    .link-prev,
+    .link-next {
+        &:hover {
+            color: #262b3b;
+            opacity: unset !important;
+            font-weight: 700;
+        }
+    }
+
+    .apps-prev {
+        left: -10%;
+        color: #262b3b;
+        font-size: 30px;
+
+        @media screen and (max-width: 1125px) {
+            left: 40%;
+            bottom: -250px;
+        }
+
+        @media screen and (max-width: 768px) {
+            bottom: -100px;
+        }
+
+        @media screen and (max-width: 576px) {
+            display: none;
+        }
+    }
+
+    .apps-next {
+        right: -10%;
+        color: #262b3b;
+        font-size: 30px;
+
+        @media screen and (max-width: 1125px) {
+            right: 40%;
+            bottom: -250px;
+        }
+
+        @media screen and (max-width: 768px) {
+            bottom: -100px;
+        }
+
+        @media screen and (max-width: 576px) {
+            display: none;
+        }
+    }
+
+    .apps-prev,
+    .apps-next {
+        &:hover {
+            color: #262b3b;
+            opacity: unset !important;
+            font-weight: 700;
+        }
+    }
+
+
+    #carouselApp {
+        img {
+            width: 100%;
+            height: 150px;
+            object-fit: fill;
+
+            @media screen and (max-width: 992px) {
+                height: 100px;
+            }
+
+            @media screen and (max-width: 768px) {
+                height: 50px;
+            }
+
+            @media screen and (max-width: 576px) {
+                width: 80%;
+                height: 150px;
+            }
+
+            @media screen and (max-width: 376px) {
+                width: 100%;
+                height: 80px;
+            }
+        }
+    }
+
+}
+
+// Section Footer
+.section-footer {
+    .footer {
+        background-color: #262b3b;
+        color: #fff;
+    }
+
+    h2 {
+        font-weight: 700;
+    }
+
+    i {
+        font-size: 20px;
+    }
+
+    .bottom-footer {
+        background-color: #14161e;
+        color: #fff;
+    }
+
+    .sosmed {
+        a {
+            color: #fff;
+
+            &:hover {
+                color: #14161e;
+            }
+        }
+    }
+}
